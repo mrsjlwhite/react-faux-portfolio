@@ -78,7 +78,7 @@ h2 {
 .content {
   width: 60%;
   text-align: center;
-  margin: 0 20% 0 20%;
+  margin: 0 10% 0 10%;
   height: 50vh;
 }
 
@@ -169,4 +169,13 @@ button:hover {
 button[disabled] {
   cursor: default;
   opacity: .8;
+}
+
+/* PORTFOLIO */
+
+.project-thumbnail {
+  width: auto;
+  height: 300px;
+  margin-bottom: 50px;
+  cursor: pointer;
 }

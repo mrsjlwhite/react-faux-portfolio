@@ -12,9 +12,7 @@ function About() {
 
     return (
         <div className="content-container">
-            {profilePic === '' && (
-                <Loading />
-            )}
+            {profilePic === '' && <Loading />}
 
             {profilePic !== '' && (
                 <div className="content">
