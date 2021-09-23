@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Loading from './Loading';
+import Loading from '../Loading';
 
 function Resume() {
     const [resume, setResume] = useState([]);

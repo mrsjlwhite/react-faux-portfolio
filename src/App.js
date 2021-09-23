@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import Nav from '../src/components/Nav';
-import Footer from '../src/components/Footer';
-import Portfolio from '../src/components/Portfolio';
-import Resume from '../src/components/Resume';
-import ContactForm from '../src/components/Contact';
-import About from '../src/components/About';
+import Nav from './components/Nav';
+import Footer from './components/Footer';
+import Portfolio from './components/Portfolio';
+import Resume from './components/Resume';
+import ContactForm from './components/Contact';
+import About from './components/About';
 
 function App() {
   const [navOptions] = useState([
