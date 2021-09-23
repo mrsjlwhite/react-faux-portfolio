@@ -9,15 +9,11 @@ function Nav(props) {
     
     return (
         <header className="pink-bg">
-            <h2>
-                <span
-                    role="img"
-                    aria-label="react">
-                    ⚛
-                </span>
+            <h2 className="header-title">
+                <img src='https://emojis.slackmojis.com/emojis/images/1614674848/16192/cloud.gif?1614674848' alt='cloud'/>
                 My Faux Portfolio
             </h2>
-            <nav>
+            <nav className="header-nav">
                 <ul className="flex-row">
                     {categories.map((category) => (
                         <li

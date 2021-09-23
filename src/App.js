@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Nav from '../src/components/Nav';
+import Footer from '../src/components/Footer';
 
 function App() {
   const [navOptions] = useState([
@@ -19,6 +20,10 @@ function App() {
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}>
       </Nav>
+      <main>
+        <span>oh hi mark</span>
+      </main>
+      <Footer />
     </div>
   );
 }
