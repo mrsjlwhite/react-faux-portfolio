@@ -5,6 +5,8 @@ function Nav(props) {
         categories = [],
         setCurrentCategory,
         currentCategory,
+        // pageSelected, 
+        setPageSelected
     } = props;
     
     return (
@@ -24,6 +26,7 @@ function Nav(props) {
                             <span
                                 onClick={() => {
                                     setCurrentCategory(category);
+                                    setPageSelected(category.name);
                                 }}>
                                 {(category.name)}
                             </span>
