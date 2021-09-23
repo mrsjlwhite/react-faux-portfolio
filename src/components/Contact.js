@@ -7,41 +7,58 @@ function ContactForm() {
 
     function handleChange(e) {
         if (!e.target.value.length) {
-           return setErrorMessage(`${e.target.name} is required.`);
+            return setErrorMessage(`${e.target.name} is required.`);
         }
 
-        setFormState({ ...formState, [e.target.name]: e.target.value });
+        if (!errorMessage) {
+            setFormState({ ...formState, [e.target.name]: e.target.value });
+        }
     };
 
     function handleSubmit(e) {
         e.preventDefault();
+        let inputErrors = [];
+        if (!name) {
+            inputErrors.push('Name');
+        }
+        if (!email) {
+            inputErrors.push('Email');
+        }
+        if (!message) {
+            inputErrors.push('Message');            
+        }
+        
+        if (inputErrors.length > 0) {
+            let conjunction = inputErrors.length === 1 ? 'is' : 'are';
+            return setErrorMessage(`${inputErrors} ${conjunction} required.`)
+        }
+        
         console.log(formState);
     };
 
     return (
-        <section>
-            <h1 data-testid="contact">Contact me</h1>
-            <form id="contact-form" onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name:</label>
-                    <input type="text" name="name" onBlur={handleChange} defaultValue={name} />
-                </div>
-                <div>
-                    <label htmlFor="email">Email address:</label>
-                    <input type="email" name="email" onBlur={handleChange} defaultValue={email} />
-                </div>
-                <div>
-                    <label htmlFor="message">Message:</label>
-                    <textarea name="message" rows="5" onBlur={handleChange} defaultValue={message} />
-                </div>
-                {errorMessage && (
-                    <div>
-                        <p className="error-text">{errorMessage}</p>
+        <div className="content-container">
+            <div className="content">
+                <h1>Contact me</h1>
+                <form id="contact-form" onSubmit={handleSubmit}>
+                    <div className="form-item">
+                        <input type="text" name="name" onBlur={handleChange} defaultValue={name} placeholder="Name" />
                     </div>
-                )}
-                <button type="submit" data-testid="submitButton">Submit</button>
-            </form>
-        </section>
+                    <div className="form-item">
+                        <input type="email" name="email" onBlur={handleChange} defaultValue={email} placeholder="Email" />
+                    </div>
+                    <div className="form-item">
+                        <textarea name="message" rows="5" onBlur={handleChange} defaultValue={message} placeholder="Message" />
+                    </div>
+                    {errorMessage && (
+                        <div>
+                            <p className="error-text">{errorMessage}</p>
+                        </div>
+                    )}
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
     );
 }
 
